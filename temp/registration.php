@@ -1,0 +1,201 @@
+<?php
+require_once('config.php');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<style>
+		body {
+			background-image: url("hotel.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			color: #fff;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 100px auto;
+			max-width: 600px;
+			padding: 20px;
+			background-color: rgba(0,0,0,0.5);
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			border-radius: 5px;
+		}
+
+		h1 {
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		input[type=text], input[type=email], input[type=password] {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			background-color: rgba(255,255,255,0.8);
+			color: #000;
+		}
+
+		label {
+			font-weight: bold;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		button[type=submit] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			width: 100%;
+			margin-top: 20px;
+		}
+
+		button[type=submit]:hover {
+			background-color: #45a049;
+		}
+
+		.error {
+			color: red;
+			font-size: 0.8em;
+			margin-bottom: 10px;
+		}
+
+
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Registration Form</h1>
+		
+		<form action="registration.php" name="myform"  method="post" onsubmit=" return validate()">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" placeholder="Enter your name">
+
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" placeholder="Enter your email">
+
+			<label for="phone">Phone:</label>
+			<input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+
+			<label for="pass">Password:</label>
+			<input type="password" id="pass" name="pass" placeholder="Enter your password">
+
+			
+
+			<button type="submit" value="submit">Register</button>
+		</form>
+	</div>
+	<script>
+		function validate(){  
+var name=document.myform.name.value;  
+var pass=document.myform.pass.value;  
+ 
+if (name==null || name==""){  
+  alert("Name can't be blank");  
+  return false;  
+}else if(pass.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }
+
+var firstpass=document.myform.pass.value;
+var secondpass=document.myform.pass2.value;
+if(firstpass=secondpass){
+return true;
+}
+else{
+alert("password must be same!");
+return false;
+}
+
+var phone=document.myform.phone.value;
+if (isNaN(phone)){
+  document.getElementById("phone").innerHTML="   !!!!Enter Numeric value only!!!  ";
+  return false;
+}else{
+  return true;
+  }
+
+var x=document.myform.email.value;  
+var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf(".");  
+if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);  
+  return false;  
+  }  
+
+}  
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script type="text/javascript">
+$(function(){
+		$('#register').click(function(e){
+
+			var valid = this.form.checkValidity();
+
+			if(valid){
+
+
+			var firstname 	= $('#firstname').val();
+			var lastname	= $('#lastname').val();
+			var email 		= $('#email').val();
+			var phonenumber = $('#phonenumber').val();
+			var password 	= $('#password').val();
+			
+
+				e.preventDefault();	
+
+				$.ajax({
+					type: 'POST',
+					url: 'process.php',
+					data: {firstname: firstname,lastname: lastname,email: email,phonenumber: phonenumber,password: password},
+					success: function(data){
+					Swal.fire({
+								'title': 'Successful',
+								'text': data,
+								'type': 'success'
+								})
+							
+					},
+					error: function(data){
+						Swal.fire({
+								'title': 'Errors',
+								'text': 'There were errors while saving the data.',
+								'type': 'error'
+								})
+					}
+					
+				});
+
+				
+			}else{
+				
+			}
+
+			
+
+
+
+		});		
+
+		
+	});
+	
+</body>
+</html>

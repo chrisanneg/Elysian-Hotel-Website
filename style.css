@@ -1,0 +1,524 @@
+/*** Spinner ***/
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(42, 36, 36);
+  }
+
+.topnav{
+    overflow: hidden;
+    background-color: rgb(39, 23, 59);
+    align-items: center;
+    
+}
+
+.topnav a{
+    float:right;
+    color: #ffffff;
+    padding:40px;
+    text-align: center;
+    text-decoration: none;
+    
+    justify-content: space-between;
+	align-items: center;
+    margin:0%;
+    
+
+}
+
+.topnav a:hover{
+    background-color: rgba(127, 89, 163, 0.601);
+    color:rgb(255, 255, 255);
+
+}
+
+.topnav a.active{
+    background-color: rgb(127, 89, 163);
+    color:white;
+}
+
+.logo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(226, 226, 226);
+   margin-left: 10px;
+    margin: top 10px;
+    position:fixed;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 3px #fff, 0 0 40px #fff, 0 0 30px #825286, 0 0 40px #9c2588, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 3px #fff, 0 0 40px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15%;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  /* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin-top: 20px;
+    padding: 0%;
+    border: 8px solid black;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 30px;
+    font-weight: 100;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  
+
+  .title{
+    color:white;
+    font-weight: 600;
+    font-size: 40px;;
+    margin:50px 0px;
+    text-align: center;
+    text-transform: uppercase;
+    
+}
+
+
+.game-logo img{
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+}
+h3{
+    color:white;
+    text-align: center;
+}
+
+.games{
+    display: flex;
+    
+    flex-wrap: wrap;
+    align-items: center;
+    /* background-color:	rgba(0, 0, 47,0.3); */
+    justify-content: space-evenly;
+}
+.game-list{
+    margin: 30px;;
+    padding: 20px;
+    height: 200px;
+    width:250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid gray;
+    background: rgba(255, 75, 255, 0.1);
+    box-shadow: 0 8px 40px 0 rgba(45, 57, 231, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.game-list:hover{
+    transform: scale(1.05);
+}
+.store{
+    margin-top: 50px;
+}
+.game-store{
+    margin-top: 20px !important;
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+}
+.game-image{
+    width:300px;
+    height: 180px;
+    
+}
+.game-image img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+.game-store-list{
+    width:300px;
+    height: 300px;
+     margin: 20px;
+    overflow: hidden;
+    border-top: none;
+    
+      -webkit-box-shadow: 0 8px 40px 0 rgba(45, 57, 231, 0.37);
+              box-shadow: 0 8px 40px 0 rgba(45, 57, 231, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-bottom: 1px solid blueviolet;
+    color:white;
+     
+}
+.store-text-description{
+     
+padding-left:20px;
+display: flex;
+flex-direction: column;
+     
+} 
+
+.imp{
+    color: #673ee1ef;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+
+/*customer*/
+.customers{
+    margin-top: 40px;
+    padding: 40px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/customer-banner.jpg") center/cover no-repeat fixed;
+}
+.customer{
+    background: #fff;
+    padding: 35px;
+    text-align: center;
+    margin: 24px 0;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
+    transition: var(--transition);
+}
+.rating{
+    margin: 10px 0;
+    color: var(--yellow);
+}
+.customer h3{
+    font-size: 25px;
+}
+.customer p{
+    opacity: 0.7;
+    line-height: 1.8;
+    width: 60%;
+    margin: 0 auto;
+}
+.customer img{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 25px auto;
+}
+.customer span{
+    font-weight: 700;
+    opacity: 0.7;
+}
+.customer:hover{
+    transform: translateY(-18px);
+}
+@media(min-width: 992px){
+  .customers-container{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+  }
+}
+@media(min-width: 1370px){
+  .customers-container{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media(max-width: 500px){
+  .customer p{
+      width: 100%;
+  }
+  .customer img{
+      width: 100px;
+      height: 100px;
+  }
+}
+
+/* booking form */
+.book{
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("images/banner-img.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 40px 60px;
+}
+.book-form{
+  display: grid;
+}
+.form-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.book-form input[type = "submit"]{
+  margin: 18px 0 0 0;
+  background: var(--dark);
+  color: #fff;
+  border: 1px solid #fff;
+}
+.book-form label, .book-form input{
+  width: 100%;
+}
+.book-form label{
+  font-weight: 600;
+  word-spacing: 5px;
+  padding-bottom: 8px;
+}
+.book-form input:not(.btn){
+  margin: 4px 0 16px 0;
+  padding: 12px 15px;
+  border-radius: 5px;
+  font-size: 17px;
+  border: none;
+}
+.book-form input:focus{
+  outline: 0;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+}
+@media(min-width: 768px){
+  .book-form{
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 24px;
+  }
+}
+@media(min-width: 1170px){
+  .book-form{
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media(min-width: 1370px){
+  .book-form{
+      grid-template-columns: 2fr 2fr 1fr 1fr 1fr 2fr;
+  }
+  .book{
+      height: 40vh;
+      display: grid;
+  }
+}
+@media(max-width: 500px){
+  .book{
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+}
+
+/* footer */
+.footer{
+  background-color: var(--dark);
+  color: #fff;
+  text-align: center;
+}
+.footer-container{
+  width: 85vw;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.footer-container p, .footer-container a, .footer-container span{
+  opacity: 0.8;
+}
+.footer a{
+  display: block;
+  background: var(--dark);
+  color: #fff;
+
+  text-decoration: none;
+}
+.contact-item span{
+  display: block;
+}
+@media(min-width: 900px){
+  .footer-container{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+  }
+}
+@media(min-width: 1170px){
+  .footer{
+      text-align: left;
+  }
+  .footer-container{
+      grid-template-columns: repeat(4, 1fr);
+  }
+  .footer-container div:nth-child(1) p{
+      padding-right: 20px;
+  }
+  .contact-item{
+      display: grid;
+      grid-template-columns: 10% 90%;
+      margin-bottom: 15px;
+      align-items: center;
+  }
+}
+
+.showModal{
+  position: fixed;
+  background: transparent;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
